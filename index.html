@@ -2,119 +2,161 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Resident‑Proof Fat‑Loss Playbook — Low‑Carb Edition</title>
+<title>Weekly Action Plan – Low‑Carb Fat‑Loss</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
- :root{
-    --bg:#fdfdfd;
-    --accent:#00707c;
-    --accent-light:#d9f3f6;
-    --warn:#b30000;
-    --card:#ffffff;
-    --shadow:0 2px 6px rgba(0,0,0,.12);
- }
- *{box-sizing:border-box;}
- body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:var(--bg);color:#222;line-height:1.45}
- h1{margin:0;padding:24px 16px;background:var(--accent);color:#fff;font-size:1.6rem}
- h2{color:var(--accent);margin:0 0 8px;font-size:1.1rem}
- section.card{
-    background:var(--card);margin:16px;border-radius:8px;box-shadow:var(--shadow);padding:16px;
-    display:flex;flex-direction:column;gap:10px;
- }
- ul{margin:0 0 0 20px;padding:0}
- li{margin:4px 0}
- table{width:100%;border-collapse:collapse;font-size:.92rem}
- th,td{border:1px solid #ccc;padding:6px;text-align:left}
- th{background:var(--accent-light)}
- .warn{color:var(--warn);font-weight:bold}
- button.accord{
-    background:var(--accent);color:#fff;border:none;border-radius:5px;
-    padding:10px 14px;font-size:.95rem;cursor:pointer;box-shadow:var(--shadow)
- }
- .panel{max-height:0;overflow:hidden;transition:max-height .4s ease;border-top:1px solid #ccc;margin-top:10px}
- .panel.open{max-height:1200px;padding-top:14px}
- @media (min-width:800px){
-    .flexgrid{display:flex;gap:16px}
-    .flexgrid section.card{flex:1}
- }
+:root{
+ --accent:#0a7c8c; --warn:#c33; --bg:#fafafa; --card:#fff; --shadow:0 2px 6px rgba(0,0,0,.15);
+ --tab-w:33.33%;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Segoe UI,Arial,sans-serif;background:var(--bg);color:#222;line-height:1.45}
+h1{padding:14px 10px;background:var(--accent);color:#fff;font-size:1.2rem;text-align:center}
+nav{display:flex;position:sticky;top:0;z-index:9}
+nav button{
+ width:var(--tab-w);border:none;padding:10px;font-size:.9rem;background:#e4f4f6;color:#000;
+ border-right:1px solid #ccc;cursor:pointer}
+nav button.active{background:var(--accent);color:#fff}
+section.tab{display:none;padding:12px}
+section.tab.active{display:block;animation:fade .4s}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.card{background:var(--card);margin-bottom:12px;border-radius:8px;box-shadow:var(--shadow);padding:12px}
+.card h2{font-size:1.0rem;margin-bottom:6px;color:var(--accent)}
+ul{margin-left:18px;margin-top:4px}
+li{margin:4px 0}
+.meal{font-weight:bold}
+.warn{color:var(--warn)}
+button.accord{background:var(--accent);color:#fff;border:none;border-radius:5px;padding:8px 12px;margin:12px auto;display:block;font-size:.9rem;cursor:pointer;box-shadow:var(--shadow)}
+.panel{max-height:0;overflow:hidden;transition:max-height .4s ease;border-top:1px solid #ccc;margin-top:8px}
+.panel.open{max-height:1500px;padding-top:10px}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th,td{border:1px solid #ccc;padding:4px;text-align:left}
+th{background:#eaf7f9}
+@media(min-width:720px){
+ body{max-width:720px;margin:auto}
+}
 </style>
 </head>
 <body>
+<h1>Resident‑Proof Fat‑Loss Action Plan (Carbs ≤ 50 g Net)</h1>
 
-<h1>4‑Point Fat‑Loss Playbook<br><small style="font-weight:400;font-size:.9rem">Carbs ≤ 15 % kcal (≤ 50 g net)</small></h1>
+<!-- TAB CONTROLS -->
+<nav>
+ <button class="tabBtn active" data-tab="reg">Regular Shift</button>
+ <button class="tabBtn" data-tab="med">Medicine Rotation</button>
+ <button class="tabBtn" data-tab="night">Night Shift</button>
+</nav>
 
-<div class="flexgrid">
-<section class="card">
- <h2>1. Eat to Burn, Not Store</h2>
- <ul>
-  <li><b>Macros:</b> 45 % protein · 40 % fat · <span class="warn">≤ 15 % carbs</span>.</li>
-  <li><b>Meals:</b> 3 fixed; add 1 protein snack only after night duty.</li>
-  <li><b>Proteins &amp; Fats:</b> eggs, sardines 3×/wk, salmon, chicken thighs, lamb, liver 1×/wk, kefir/cheese.</li>
-  <li><b>Allowed carbs (small):</b> berries, avocado, leafy greens, lentils. <span class="warn">No bread / rice / soda.</span></li>
-  <li><b>Daily supps:</b> 2 g EPA‑DHA, vit D+K2, turmeric+pepper, magnesium.</li>
- </ul>
+<!-- REGULAR SHIFT TAB -->
+<section id="reg" class="tab active">
+ <div class="card">
+  <h2>Workout – Pick Listed Class or Alt Gym (Mon‑Sun)</h2>
+  <ul>
+   <li><b>Mon</b> 5:30 pm <span class="warn">TOTAL BODY TONING</span>;<br>Alt: 30 min incline walk + 15 min kettlebell swings.</li>
+   <li><b>Tue</b> 5:30 pm YOGA;<br>Alt: 40 min cycling.</li>
+   <li><b>Wed</b> 6:30 pm STEP &amp; STRENGTH;<br>Alt: 4×(deadlift 5 + push‑ups 10 + row 250 m).</li>
+   <li><b>Thu</b> 6:30 pm ZUMBA;<br>Alt: 10× stair sprint (15 s up / 45 s down).</li>
+   <li><b>Fri</b> 5:30 pm Self‑guided: 20 min BODY‑PUMP style circuit (squat, bench, row) + 15 min rower.</li>
+   <li><b>Sat</b> 8:15 am BODY SCULPT (Tara); if missed → 45 min brisk hike.</li>
+   <li><b>Sun</b> 8 am CYCLING or 10 am YOGA; if busy → 30 min yoga video + walk 6 k steps.</li>
+  </ul>
+ </div>
+
+ <div class="card">
+  <h2>Eat &amp; Sleep</h2>
+  <ul>
+   <li class="meal">06 30 Protein omelet + avocado.</li>
+   <li class="meal">12 30 Salmon salad + olive oil.</li>
+   <li class="meal">18 30 Chicken thighs + lentils + greens.</li>
+   <li>Snack (only if hungry 20 30): kefir + whey.</li>
+   <li>Sleep 22 30 – 06 00 (7.5 h).</li>
+  </ul>
+ </div>
 </section>
 
-<section class="card">
- <h2>2. Daily Movement Templates</h2>
- <table>
-  <tr><th>Shift</th><th>Time</th><th>Session</th></tr>
-  <tr><td>Long day</td><td>20–30 min post‑shift</td><td>Zone 2 walk, bike or swim</td></tr>
-  <tr><td>Night</td><td>25 min pre‑shift</td><td>Mobility 10 min → 10× stair sprint (15 s / 45 s)</td></tr>
-  <tr><td>Off</td><td>45 min</td><td>Heavy lifts 20 min → HIIT 10 min (30 s / 90 s ×6)</td></tr>
-  <tr><td>Deload (wk 6)</td><td>30 min</td><td>Yoga / swim; 8 k steps</td></tr>
- </table>
+<!-- MEDICINE ROTATION TAB -->
+<section id="med" class="tab">
+ <div class="card">
+  <h2>Workout – Long Shift Friendly</h2>
+  <ul>
+   <li><b>Mon</b> 4 am BODY SCULPT (5:30 am class impossible) → 12‑min hotel‑room HIIT (squats, push‑ups, burpees) pre‑shift.</li>
+   <li><b>Tue</b> Post‑shift 7:30 pm HIP HOP HIIT; if too tired → 20 min treadmill walk + stretch.</li>
+   <li><b>Wed</b> 4 am quick band circuit (rows, glute bridge, shoulder press) 15 min.</li>
+   <li><b>Thu</b> Post‑shift 6:30 pm ZUMBA or 30 min cycling.</li>
+   <li><b>Fri</b> 4 am 10× stair sprint in hospital stairwell.</li>
+   <li><b>Sat</b> 8:30 am CYCLING (Claudia M.) – rest of day off.</li>
+   <li><b>Sun</b> 9 am ZUMBA BURST or rest walk 8 k steps.</li>
+  </ul>
+ </div>
+  <div class="card">
+   <h2>Eat &amp; Sleep</h2>
+   <ul>
+    <li class="meal">04 30 Eggs + cheese + coffee.</li>
+    <li class="meal">10 00 Beef jerky + nuts.</li>
+    <li class="meal">13 00 Chicken salad + olive oil.</li>
+    <li class="meal">17 00 Tuna packets + avocado.</li>
+    <li class="meal">20 30 Kefir + collagen.</li>
+    <li>Sleep 21 30 – 04 00 (7 h).</li>
+   </ul>
+  </div>
 </section>
-</div>
 
-<div class="flexgrid">
-<section class="card">
- <h2>3. Recovery &amp; Hunger Control</h2>
- <ul>
-  <li>Sleep 7 h; &lt;6 h → skip HIIT &amp; double fish oil.</li>
-  <li>Post‑workout: whey + tart cherry + collagen.</li>
-  <li>Night‑shift cravings: pack eggs + cheese; ignore vending carbs.</li>
-  <li>Tendon prep: eccentric calf &amp; knee band work 2 × 15, 3×/wk.</li>
- </ul>
+<!-- NIGHT SHIFT TAB -->
+<section id="night" class="tab">
+ <div class="card">
+  <h2>Workout – Shift Ends 07 00</h2>
+  <ul>
+   <li><b>Mon</b> 8 am CYCLING (Amanda) then home &amp; sleep.</li>
+   <li><b>Tue</b> 8:30 am BODY PUMP (Tara) or 20 min kettlebell circuit.</li>
+   <li><b>Wed</b> 9:30 am ZUMBA (Julio) if energy; else 30 min walk.</li>
+   <li><b>Thu</b> 8 am YOGA (Soroya) + stretch.</li>
+   <li><b>Fri</b> 8:30 am BARRE PILATES (Claudia).</li>
+   <li><b>Sat</b> Sleep straight home, evening 4 pm walk 6 k steps before shift.</li>
+   <li><b>Sun</b> OFF – full rest; mobility 15 min.</li>
+  </ul>
+ </div>
+ <div class="card">
+  <h2>Eat &amp; Sleep</h2>
+  <ul>
+   <li class="meal">16 00 Protein + fat preload: sardines + nuts.</li>
+   <li class="meal">22 00 Chicken wrap (low‑carb tortilla) + greens.</li>
+   <li class="meal">02 00 Eggs + avocado; blacklist vending carbs.</li>
+   <li class="meal">08 30 Post‑class whey + tart‑cherry; bed by 09 30.</li>
+   <li>Sleep 09 30 – 15 30 (6 h) + 1 h nap 13 00 if off‑night.</li>
+  </ul>
+ </div>
 </section>
 
-<section class="card">
- <h2>4. Red Flags = Plateau</h2>
- <ul>
-  <li>Cut >500 kcal (UCP2 thrifty) → stall.</li>
-  <li>HIIT two days straight → inflammation.</li>
-  <li>Skip meals after call → binge risk.</li>
-  <li>“Healthy” oat &amp; fruit smoothies → insulin surge.</li>
-  <li>No movement 24 h → appetite&nbsp;&gt;&nbsp;burn.</li>
- </ul>
-</section>
-</div>
-
-<section class="card" style="text-align:center">
+<!-- REFERENCES -->
+<section class="card" style="margin:12px">
  <button class="accord">Show / Hide Genetic References</button>
  <div class="panel">
   <table>
-   <tr><th>SNP (Gene)</th><th>Code</th><th>Effect</th><th>Low‑Carb Logic</th></tr>
-   <tr><td>rs659366 (UCP2)</td><td>C/C</td><td>Thrifty burn</td><td>Carbs suppress EE; fat keeps burn on</td></tr>
-   <tr><td>rs4253778 (PPARA)</td><td>G/G</td><td>Fat‑oxid muscle</td><td>Low‑carb taps this bias</td></tr>
-   <tr><td>rs8192678 (PPARGC1A)</td><td>C/C</td><td>Mito boost on cardio</td><td>Zone 2 + HIIT maximises fat use</td></tr>
-   <tr><td>rs9939609 (FTO)</td><td>A/T</td><td>Hunger w/ glucose</td><td>Minimise sugar swings</td></tr>
-   <tr><td>rs17782313 (MC4R)</td><td>C/T</td><td>Binge trigger</td><td>Protein/fat steady signals</td></tr>
-   <tr><td>rs1800795 (IL6)</td><td>G/G</td><td>High soreness</td><td>Low‑GI + omega‑3 calm IL‑6</td></tr>
-   <tr><td>rs12722 (COL5A1)</td><td>C/T</td><td>Tendon risk</td><td>Prep with eccentrics</td></tr>
-   <tr><td>rs1815739 (ACTN3)</td><td>C/C</td><td>Fast‑twitch power</td><td>Sprints thrive w/o carb‑load</td></tr>
-   <tr><td>rs4988235 (LCT)</td><td>G/G</td><td>Lactose intolerant</td><td>Choose kefir, not milk sugar</td></tr>
-   <tr><td>rs174537 (FADS1)</td><td>G/G</td><td>Poor ALA→EPA/DHA</td><td>Fish oil mandatory</td></tr>
-   <tr><td>rs12934922 + rs7501331 (BCMO1)</td><td>T/T + C/C</td><td>No β‑carotene→A</td><td>Liver > carrots</td></tr>
-   <tr><td>rs4343 (ACE)</td><td>I/I</td><td>Endurance bias</td><td>Supports long Zone 2 on LC</td></tr>
+   <tr><th>SNP (Gene)</th><th>Code</th><th>Effect</th><th>Why Low‑Carb / Plan</th></tr>
+   <tr><td>rs659366 (UCP2)</td><td>C/C</td><td>Thrifty burn</td><td>Aggressive cuts stall; constant movement vital</td></tr>
+   <tr><td>rs4253778 (PPARA)</td><td>G/G</td><td>Fat‑oxid muscle</td><td>Zone 2 &amp; low‑carb tap fat stores</td></tr>
+   <tr><td>rs8192678 (PPARGC1A)</td><td>C/C</td><td>Mito build on cardio</td><td>Daily steady cardio accelerates loss</td></tr>
+   <tr><td>rs9939609 (FTO)</td><td>A/T</td><td>Glucose‑linked hunger</td><td>Protein/fat meals keep appetite low</td></tr>
+   <tr><td>rs17782313 (MC4R)</td><td>C/T</td><td>Binge trigger</td><td>Scheduled meals prevent reactive eating</td></tr>
+   <tr><td>rs1800795 (IL6)</td><td>G/G</td><td>High soreness</td><td>7 h sleep + omega‑3 &curcumin mandatory</td></tr>
+   <tr><td>rs12722 (COL5A1)</td><td>C/T</td><td>Tendon risk</td><td>Eccentrics, avoid sudden mileage jumps</td></tr>
+   <tr><td>rs1815739 (ACTN3)</td><td>C/C</td><td>Fast‑twitch power</td><td>Sprints/HIIT slotted twice a week</td></tr>
+   <tr><td>rs4988235 (LCT)</td><td>G/G</td><td>Lactose intolerant</td><td>Kefir/cheese only</td></tr>
+   <tr><td>rs174537 (FADS1)</td><td>G/G</td><td>Poor ALA→EPA/DHA</td><td>2 g fish oil daily</td></tr>
+   <tr><td>rs12934922 + rs7501331 (BCMO1)</td><td>T/T + C/C</td><td>No β‑carotene→A</td><td>Liver weekly or retinol supplement</td></tr>
+   <tr><td>rs4343 (ACE)</td><td>I/I</td><td>Endurance bias</td><td>Long cardio blocks included</td></tr>
   </table>
  </div>
 </section>
 
 <script>
-document.querySelector('.accord').addEventListener('click',function(){
-  this.nextElementSibling.classList.toggle('open');
+const btns=document.querySelectorAll('.tabBtn');
+const tabs=document.querySelectorAll('.tab');
+btns.forEach(btn=>{
+ btn.onclick=()=>{btns.forEach(b=>b.classList.remove('active'));tabs.forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');document.getElementById(btn.dataset.tab).classList.add('active');};
 });
+document.querySelector('.accord').onclick=function(){this.nextElementSibling.classList.toggle('open');};
 </script>
-
 </body>
 </html>
