@@ -2,161 +2,278 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Weekly Action Plan – Low‑Carb Fat‑Loss</title>
+<title>6‑Month Fat‑Loss Planner</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
-:root{
- --accent:#0a7c8c; --warn:#c33; --bg:#fafafa; --card:#fff; --shadow:0 2px 6px rgba(0,0,0,.15);
- --tab-w:33.33%;
-}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:Segoe UI,Arial,sans-serif;background:var(--bg);color:#222;line-height:1.45}
-h1{padding:14px 10px;background:var(--accent);color:#fff;font-size:1.2rem;text-align:center}
-nav{display:flex;position:sticky;top:0;z-index:9}
-nav button{
- width:var(--tab-w);border:none;padding:10px;font-size:.9rem;background:#e4f4f6;color:#000;
- border-right:1px solid #ccc;cursor:pointer}
-nav button.active{background:var(--accent);color:#fff}
-section.tab{display:none;padding:12px}
-section.tab.active{display:block;animation:fade .4s}
-@keyframes fade{from{opacity:0}to{opacity:1}}
-.card{background:var(--card);margin-bottom:12px;border-radius:8px;box-shadow:var(--shadow);padding:12px}
-.card h2{font-size:1.0rem;margin-bottom:6px;color:var(--accent)}
-ul{margin-left:18px;margin-top:4px}
-li{margin:4px 0}
-.meal{font-weight:bold}
-.warn{color:var(--warn)}
+:root{--accent:#0a7c8c;--light:#e7f7f9;--warn:#c33;--card:#fff;--shadow:0 2px 6px rgba(0,0,0,.15)}
+*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:#fafafa;color:#222}
+h1{margin:0;padding:14px 8px;background:var(--accent);color:#fff;font-size:1.25rem;text-align:center}
+nav.tabs{display:flex;position:sticky;top:0;z-index:9}
+nav.tabs button{flex:1;border:none;padding:10px;font-size:.9rem;background:var(--light);border-right:1px solid #ccc;cursor:pointer}
+nav.tabs button.active{background:var(--accent);color:#fff}
+.control{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:#fff;box-shadow:var(--shadow)}
+select{padding:6px;font-size:.9rem}
+.day{background:var(--card);margin:8px;border-radius:8px;box-shadow:var(--shadow);padding:10px}
+.day h3{margin:0 0 6px;font-size:1rem;color:var(--accent)}
+label{display:block;margin:4px 0;font-size:.88rem}
+input[type=checkbox]{margin-right:6px}
 button.accord{background:var(--accent);color:#fff;border:none;border-radius:5px;padding:8px 12px;margin:12px auto;display:block;font-size:.9rem;cursor:pointer;box-shadow:var(--shadow)}
 .panel{max-height:0;overflow:hidden;transition:max-height .4s ease;border-top:1px solid #ccc;margin-top:8px}
-.panel.open{max-height:1500px;padding-top:10px}
-table{width:100%;border-collapse:collapse;font-size:.9rem}
+.panel.open{max-height:1500px;padding-top:8px}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
 th,td{border:1px solid #ccc;padding:4px;text-align:left}
-th{background:#eaf7f9}
-@media(min-width:720px){
- body{max-width:720px;margin:auto}
-}
+th{background:var(--light)}
+@media(min-width:720px){body{max-width:720px;margin:auto}}
 </style>
 </head>
 <body>
-<h1>Resident‑Proof Fat‑Loss Action Plan (Carbs ≤ 50 g Net)</h1>
+<h1>Resident Fat‑Loss Planner – Low Carb ≤ 50 g</h1>
 
-<!-- TAB CONTROLS -->
-<nav>
- <button class="tabBtn active" data-tab="reg">Regular Shift</button>
- <button class="tabBtn" data-tab="med">Medicine Rotation</button>
- <button class="tabBtn" data-tab="night">Night Shift</button>
+<!-- shift tabs -->
+<nav class="tabs">
+  <button data-tab="reg" class="active">Regular Shift</button>
+  <button data-tab="med">Medicine Rotation</button>
+  <button data-tab="night">Night Shift</button>
 </nav>
 
-<!-- REGULAR SHIFT TAB -->
-<section id="reg" class="tab active">
- <div class="card">
-  <h2>Workout – Pick Listed Class or Alt Gym (Mon‑Sun)</h2>
-  <ul>
-   <li><b>Mon</b> 5:30 pm <span class="warn">TOTAL BODY TONING</span>;<br>Alt: 30 min incline walk + 15 min kettlebell swings.</li>
-   <li><b>Tue</b> 5:30 pm YOGA;<br>Alt: 40 min cycling.</li>
-   <li><b>Wed</b> 6:30 pm STEP &amp; STRENGTH;<br>Alt: 4×(deadlift 5 + push‑ups 10 + row 250 m).</li>
-   <li><b>Thu</b> 6:30 pm ZUMBA;<br>Alt: 10× stair sprint (15 s up / 45 s down).</li>
-   <li><b>Fri</b> 5:30 pm Self‑guided: 20 min BODY‑PUMP style circuit (squat, bench, row) + 15 min rower.</li>
-   <li><b>Sat</b> 8:15 am BODY SCULPT (Tara); if missed → 45 min brisk hike.</li>
-   <li><b>Sun</b> 8 am CYCLING or 10 am YOGA; if busy → 30 min yoga video + walk 6 k steps.</li>
-  </ul>
- </div>
+<!-- week selector -->
+<div class="control">
+  <span id="tabLabel">Regular Shift</span>
+  <label>Week
+    <select id="weekSel"></select>
+  </label>
+</div>
 
- <div class="card">
-  <h2>Eat &amp; Sleep</h2>
-  <ul>
-   <li class="meal">06 30 Protein omelet + avocado.</li>
-   <li class="meal">12 30 Salmon salad + olive oil.</li>
-   <li class="meal">18 30 Chicken thighs + lentils + greens.</li>
-   <li>Snack (only if hungry 20 30): kefir + whey.</li>
-   <li>Sleep 22 30 – 06 00 (7.5 h).</li>
-  </ul>
- </div>
-</section>
+<!-- container for generated days -->
+<div id="content"></div>
 
-<!-- MEDICINE ROTATION TAB -->
-<section id="med" class="tab">
- <div class="card">
-  <h2>Workout – Long Shift Friendly</h2>
-  <ul>
-   <li><b>Mon</b> 4 am BODY SCULPT (5:30 am class impossible) → 12‑min hotel‑room HIIT (squats, push‑ups, burpees) pre‑shift.</li>
-   <li><b>Tue</b> Post‑shift 7:30 pm HIP HOP HIIT; if too tired → 20 min treadmill walk + stretch.</li>
-   <li><b>Wed</b> 4 am quick band circuit (rows, glute bridge, shoulder press) 15 min.</li>
-   <li><b>Thu</b> Post‑shift 6:30 pm ZUMBA or 30 min cycling.</li>
-   <li><b>Fri</b> 4 am 10× stair sprint in hospital stairwell.</li>
-   <li><b>Sat</b> 8:30 am CYCLING (Claudia M.) – rest of day off.</li>
-   <li><b>Sun</b> 9 am ZUMBA BURST or rest walk 8 k steps.</li>
-  </ul>
- </div>
-  <div class="card">
-   <h2>Eat &amp; Sleep</h2>
-   <ul>
-    <li class="meal">04 30 Eggs + cheese + coffee.</li>
-    <li class="meal">10 00 Beef jerky + nuts.</li>
-    <li class="meal">13 00 Chicken salad + olive oil.</li>
-    <li class="meal">17 00 Tuna packets + avocado.</li>
-    <li class="meal">20 30 Kefir + collagen.</li>
-    <li>Sleep 21 30 – 04 00 (7 h).</li>
-   </ul>
-  </div>
-</section>
-
-<!-- NIGHT SHIFT TAB -->
-<section id="night" class="tab">
- <div class="card">
-  <h2>Workout – Shift Ends 07 00</h2>
-  <ul>
-   <li><b>Mon</b> 8 am CYCLING (Amanda) then home &amp; sleep.</li>
-   <li><b>Tue</b> 8:30 am BODY PUMP (Tara) or 20 min kettlebell circuit.</li>
-   <li><b>Wed</b> 9:30 am ZUMBA (Julio) if energy; else 30 min walk.</li>
-   <li><b>Thu</b> 8 am YOGA (Soroya) + stretch.</li>
-   <li><b>Fri</b> 8:30 am BARRE PILATES (Claudia).</li>
-   <li><b>Sat</b> Sleep straight home, evening 4 pm walk 6 k steps before shift.</li>
-   <li><b>Sun</b> OFF – full rest; mobility 15 min.</li>
-  </ul>
- </div>
- <div class="card">
-  <h2>Eat &amp; Sleep</h2>
-  <ul>
-   <li class="meal">16 00 Protein + fat preload: sardines + nuts.</li>
-   <li class="meal">22 00 Chicken wrap (low‑carb tortilla) + greens.</li>
-   <li class="meal">02 00 Eggs + avocado; blacklist vending carbs.</li>
-   <li class="meal">08 30 Post‑class whey + tart‑cherry; bed by 09 30.</li>
-   <li>Sleep 09 30 – 15 30 (6 h) + 1 h nap 13 00 if off‑night.</li>
-  </ul>
- </div>
-</section>
-
-<!-- REFERENCES -->
-<section class="card" style="margin:12px">
+<!-- references -->
+<section class="day" style="margin:12px">
  <button class="accord">Show / Hide Genetic References</button>
  <div class="panel">
   <table>
-   <tr><th>SNP (Gene)</th><th>Code</th><th>Effect</th><th>Why Low‑Carb / Plan</th></tr>
-   <tr><td>rs659366 (UCP2)</td><td>C/C</td><td>Thrifty burn</td><td>Aggressive cuts stall; constant movement vital</td></tr>
-   <tr><td>rs4253778 (PPARA)</td><td>G/G</td><td>Fat‑oxid muscle</td><td>Zone 2 &amp; low‑carb tap fat stores</td></tr>
-   <tr><td>rs8192678 (PPARGC1A)</td><td>C/C</td><td>Mito build on cardio</td><td>Daily steady cardio accelerates loss</td></tr>
-   <tr><td>rs9939609 (FTO)</td><td>A/T</td><td>Glucose‑linked hunger</td><td>Protein/fat meals keep appetite low</td></tr>
-   <tr><td>rs17782313 (MC4R)</td><td>C/T</td><td>Binge trigger</td><td>Scheduled meals prevent reactive eating</td></tr>
-   <tr><td>rs1800795 (IL6)</td><td>G/G</td><td>High soreness</td><td>7 h sleep + omega‑3 &curcumin mandatory</td></tr>
-   <tr><td>rs12722 (COL5A1)</td><td>C/T</td><td>Tendon risk</td><td>Eccentrics, avoid sudden mileage jumps</td></tr>
-   <tr><td>rs1815739 (ACTN3)</td><td>C/C</td><td>Fast‑twitch power</td><td>Sprints/HIIT slotted twice a week</td></tr>
-   <tr><td>rs4988235 (LCT)</td><td>G/G</td><td>Lactose intolerant</td><td>Kefir/cheese only</td></tr>
-   <tr><td>rs174537 (FADS1)</td><td>G/G</td><td>Poor ALA→EPA/DHA</td><td>2 g fish oil daily</td></tr>
-   <tr><td>rs12934922 + rs7501331 (BCMO1)</td><td>T/T + C/C</td><td>No β‑carotene→A</td><td>Liver weekly or retinol supplement</td></tr>
-   <tr><td>rs4343 (ACE)</td><td>I/I</td><td>Endurance bias</td><td>Long cardio blocks included</td></tr>
+   <tr><th>SNP (Gene)</th><th>Code</th><th>Effect</th><th>Plan Tie‑in</th></tr>
+   <tr><td>rs659366 (UCP2)</td><td>C/C</td><td>Thrifty burn</td><td>Steady deficit &amp; daily steps</td></tr>
+   <tr><td>rs4253778 (PPARA)</td><td>G/G</td><td>Fat‑oxid muscle</td><td>Zone‑2 + low‑carb bias</td></tr>
+   <tr><td>rs8192678 (PPARGC1A)</td><td>C/C</td><td>Mito build</td><td>Cardio every day</td></tr>
+   <tr><td>rs9939609 (FTO)</td><td>A/T</td><td>Glucose hunger</td><td>Protein‑first meals</td></tr>
+   <tr><td>rs17782313 (MC4R)</td><td>C/T</td><td>Binge driver</td><td>Scheduled snacks</td></tr>
+   <tr><td>rs1800795 (IL6)</td><td>G/G</td><td>High soreness</td><td>Omega‑3 &amp; sleep 7 h</td></tr>
+   <tr><td>rs12722 (COL5A1)</td><td>C/T</td><td>Tendon risk</td><td>Eccentrics, no jump spikes</td></tr>
+   <tr><td>rs1815739 (ACTN3)</td><td>C/C</td><td>Power</td><td>Sprints / Body Pump</td></tr>
+   <tr><td>rs4988235 (LCT)</td><td>G/G</td><td>Lactose –</td><td>Kefir/cheese ok</td></tr>
+   <tr><td>rs174537 (FADS1)</td><td>G/G</td><td>Poor ALA→EPA/DHA</td><td>Fish‑oil 2 g</td></tr>
+   <tr><td>rs12934922&nbsp;+&nbsp;rs7501331 (BCMO1)</td><td>T/T + C/C</td><td>No β‑carotene→A</td><td>Liver 1× wk</td></tr>
+   <tr><td>rs4343 (ACE)</td><td>I/I</td><td>Endurance bias</td><td>Long cardio blocks</td></tr>
   </table>
  </div>
 </section>
 
 <script>
-const btns=document.querySelectorAll('.tabBtn');
-const tabs=document.querySelectorAll('.tab');
-btns.forEach(btn=>{
- btn.onclick=()=>{btns.forEach(b=>b.classList.remove('active'));tabs.forEach(t=>t.classList.remove('active'));
-  btn.classList.add('active');document.getElementById(btn.dataset.tab).classList.add('active');};
+// ---------- TEMPLATE DATA ----------
+const templates={
+  reg:{
+    label:'Regular Shift',
+    days:[
+      {name:'Monday', tasks:[
+        'Breakfast 06:30 – Omelet + avocado',
+        'Lunch 12:30 – Salmon salad',
+        'Dinner 18:30 – Chicken thighs + greens',
+        'Sleep 22:30‑06:00',
+        'Workout 17:30 PT or Gym circuit (squat, bench, row ×4)'
+      ]},
+      {name:'Tuesday', tasks:[
+        'Breakfast 06:30 – Eggs + cheese',
+        'Lunch 12:30 – Tuna salad',
+        'Dinner 18:30 – Lamb + broccoli',
+        'Sleep 22:30‑06:00',
+        'Morning Workout 07:30 Body Pump (Tara) ✔ optional',
+        'Evening Workout 17:30 Yoga'
+      ]},
+      {name:'Wednesday', tasks:[
+        'Breakfast 06:30 – Sardines + nuts',
+        'Lunch 12:30 – Chicken Caesar (no croutons)',
+        'Dinner 18:30 – Beef stir‑fry (no rice)',
+        'Sleep 22:30‑06:00',
+        'Workout 18:30 Step & Strength OR Gym PT session'
+      ]},
+      {name:'Thursday', tasks:[
+        'Breakfast 06:30 – Omelet + spinach',
+        'Lunch 12:30 – Shrimp salad',
+        'Dinner 18:30 – Turkey patties + greens',
+        'Sleep 22:30‑06:00',
+        'Morning Workout 07:30 Body Pump',
+        'Evening Workout 18:30 Zumba'
+      ]},
+      {name:'Friday', tasks:[
+        'Breakfast 05:30 – Whey shake + berries',
+        'Lunch 12:30 – Sardine salad',
+        'Dinner 18:30 – Steak + asparagus',
+        'Sleep 23:00‑06:30',
+        'Early Workout 06:00 Cycling class',
+        'Evening Workout 17:30 Self‑guided circuit (Body‑Pump style + 15 min row)'
+      ]},
+      {name:'Saturday', tasks:[
+        'Breakfast 07:00 – Eggs + avocado',
+        'Lunch 13:00 – Grilled salmon',
+        'Dinner 19:00 – Chicken stir‑fry',
+        'Sleep 23:00‑07:00',
+        'Morning Workout 08:15 Body Pump',
+        'Optional Evening Workout 17:00 45 min hike'
+      ]},
+      {name:'Sunday', tasks:[
+        'Breakfast 08:00 – Yogurt + nuts',
+        'Lunch 13:00 – Shrimp salad',
+        'Dinner 18:00 – Lamb + greens',
+        'Sleep 22:30‑06:30',
+        'Morning Workout 08:30 Zumba + 10:00 Yoga',
+        'Recovery Walk 6 k steps'
+      ]}
+    ]
+  },
+  med:{
+    label:'Medicine Rotation',
+    days:[
+      {name:'Monday',tasks:[
+        '04:30 Eggs + cheese + coffee',
+        '10:00 Jerky + nuts',
+        '13:00 Chicken salad',
+        '17:00 Tuna packets + avocado',
+        '20:30 Kefir + collagen',
+        'Sleep 21:30‑04:00',
+        'Pre‑shift HIIT 04:10 (12‑min body‑weight)'
+      ]},
+      {name:'Tuesday',tasks:[
+        '04:30 Omelet',
+        '10:00 Almonds',
+        '13:00 Salmon salad',
+        '17:00 Whey shake',
+        'Sleep 21:30‑04:00',
+        'Post‑shift 19:30 Hip Hop HIIT or 20‑min treadmill'
+      ]},
+      {name:'Wednesday',tasks:[
+        '04:30 Eggs',
+        '10:00 Jerky',
+        '13:00 Turkey wrap (low‑carb)',
+        '17:00 Sardines + nuts',
+        '21:30 Kefir',
+        'Sleep 21:30‑04:00',
+        '04:10 Band circuit 15 min'
+      ]},
+      {name:'Thursday',tasks:[
+        'Meals identical to Tue',
+        'Post‑shift 18:30 Zumba or 30 min bike',
+        'Sleep 21:30‑04:00'
+      ]},
+      {name:'Friday',tasks:[
+        '04:20 Whey + berries',
+        '10:00 Almonds',
+        '13:00 Chicken breast + greens',
+        '17:00 Tuna avocado',
+        'Sleep 21:30‑04:00',
+        '04:40 10× stair sprint'
+      ]},
+      {name:'Saturday',tasks:[
+        '07:00 Eggs',
+        '12:00 Salmon',
+        '18:00 Beef',
+        'Sleep 23:00‑07:00',
+        '08:30 Cycling class'
+      ]},
+      {name:'Sunday',tasks:[
+        '09:00 Zumba Burst or rest walk',
+        'Meals similar to Saturday',
+        'Sleep 22:00‑05:00'
+      ]}
+    ]
+  },
+  night:{
+    label:'Night Shift',
+    days:[
+      {name:'Monday',tasks:[
+        '16:00 Sardines + nuts',
+        '22:00 Chicken lettuce wrap',
+        '02:00 Eggs + avocado',
+        '08:30 Whey + tart‑cherry',
+        'Sleep 09:30‑15:30',
+        '08:00 Cycling class after shift'
+      ]},
+      {name:'Tuesday',tasks:[
+        '16:00 Protein preload',
+        '22:00 Beef salad',
+        '02:00 Almond butter',
+        '08:30 Body Pump',
+        'Sleep 09:30‑15:30'
+      ]},
+      {name:'Wednesday',tasks:[
+        '16:00 Nuts + cheese',
+        '22:00 Tuna salad',
+        '02:00 Eggs',
+        '09:30 Zumba or 30 min walk',
+        'Sleep 10:15‑16:00'
+      ]},
+      {name:'Thursday',tasks:[
+        '16:00 Preload',
+        '22:00 Chicken stir fry',
+        '02:00 Whey',
+        '08:00 Yoga',
+        'Sleep 09:00‑15:00'
+      ]},
+      {name:'Friday',tasks:[
+        '16:00 Sardines',
+        '22:00 Beef wrap',
+        '02:00 Eggs',
+        '08:30 Barre Pilates',
+        'Sleep 09:30‑15:30'
+      ]},
+      {name:'Saturday',tasks:[
+        'Post‑shift sleep home',
+        '16:00 Walk 6 k steps pre‑shift',
+        'Meals low‑carb as above'
+      ]},
+      {name:'Sunday',tasks:[
+        'FULL REST – mobility 15 min',
+        'Meals protein‑first',
+        'Sleep extra 8 h'
+      ]}
+    ]
+  }
+};
+
+// ---------- UI ----------
+const weekSel=document.getElementById('weekSel');
+for(let i=1;i<=26;i++){
+ const opt=document.createElement('option');opt.value=i;opt.textContent=i;weekSel.appendChild(opt);
+}
+let currentTab='reg';
+const content=document.getElementById('content');
+function saveState(key,val){localStorage.setItem(key,val);}
+function loadState(key){return localStorage.getItem(key)==='1';}
+function render(){
+ document.getElementById('tabLabel').textContent=templates[currentTab].label;
+ content.innerHTML='';
+ const week=weekSel.value;
+ templates[currentTab].days.forEach((d,idx)=>{
+   const dayEl=document.createElement('div');dayEl.className='day';
+   dayEl.innerHTML=`<h3>${d.name}</h3>`;
+   d.tasks.forEach((t,i)=>{
+     const id=`${currentTab}_${week}_${idx}_${i}`;
+     const chk=document.createElement('input');chk.type='checkbox';chk.id=id;chk.checked=loadState(id);
+     chk.onchange=e=>saveState(id,e.target.checked?'1':'0');
+     const label=document.createElement('label');label.appendChild(chk);label.append(t);
+     dayEl.appendChild(label);
+   });
+   content.appendChild(dayEl);
+ });
+}
+weekSel.onchange=render;
+document.querySelectorAll('.tabs button').forEach(btn=>{
+ btn.onclick=()=>{document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+   btn.classList.add('active');currentTab=btn.dataset.tab;render();};
 });
 document.querySelector('.accord').onclick=function(){this.nextElementSibling.classList.toggle('open');};
+// first paint
+render();
 </script>
 </body>
 </html>
